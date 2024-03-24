@@ -1,4 +1,4 @@
-import Glib from 'gi://Glib';
+import GLib from 'gi://GLib';
 
 // Copied from https://github.com/uuidjs/uuid
 // Copyright (c) 2010-2020 Robert Kieffer and other contributors

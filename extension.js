@@ -1,5 +1,5 @@
 import St from 'gi://St';
-import Glib from 'gi://Glib';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
 
@@ -10,7 +10,6 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 import {Extension, Gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-import * as Convenience from './convenience';
 import * as Polyfill from './polyfill';
 import * as Todoist from './todoist';
 import * as Uuid from './uuid';
@@ -57,7 +56,7 @@ const TodoistIndicator = GObject.registerClass(
       super._init(0.0, "Todoist Indicator");
 
       // properties init
-      this._settings = Convenience.getSettings();
+      this._settings = this.getSettings();
       this._api = new Todoist.API(this._settings.get_string("api-token"));
       this._tasks = [];
       this._projects = [];

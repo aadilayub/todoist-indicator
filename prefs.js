@@ -1,10 +1,9 @@
-import Glib from 'gi://Glib';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
 
-import {ExtensionPreferences, Gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
-import * as Convenience from './convenience';
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 const TodoistPrefsWidget = GObject.registerClass({
     Name: 'Todoist.Prefs.Widget',
@@ -13,7 +12,7 @@ const TodoistPrefsWidget = GObject.registerClass({
   class TodoistPrefsWidget extends Gtk.Grid {
     _init(params) {
       super._init(params);
-      this._settings = Convenience.getSettings();
+      this._settings = this.getSettings();
 
       this.margin = 12;
       this.row_spacing = this.column_spacing = 6;
@@ -81,4 +80,3 @@ function buildPrefsWidget() {
     if(typeof widget.show_all != "undefined") widget.show_all();
     return widget;
 }
-
