@@ -70,13 +70,9 @@ const TodoistPrefsWidget = GObject.registerClass({
   }
 );
 
-function init() {
-  Gettext.textdomain("todoist@tarelda.github.com");
-  Gettext.bindtextdomain("todoist@tarelda.github.com", this.dir.get_child("locale").get_path());
-}
 
-function buildPrefsWidget() {
-    let widget = new TodoistPrefsWidget();
-    if(typeof widget.show_all != "undefined") widget.show_all();
-    return widget;
+export default class TodoistPreferences extends ExtensionPreferences {
+  buildPrefsWidget() {
+      return new TodoistPrefsWidget();
+  }
 }
