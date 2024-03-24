@@ -1,4 +1,4 @@
-const GLib = imports.gi.GLib;
+import Glib from 'gi://Glib';
 
 // Copied from https://github.com/uuidjs/uuid
 // Copyright (c) 2010-2020 Robert Kieffer and other contributors

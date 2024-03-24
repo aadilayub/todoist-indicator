@@ -1,24 +1,19 @@
-const St = imports.gi.St;
-const GLib = imports.gi.GLib;
-const GObject = imports.gi.GObject;
-const Clutter = imports.gi.Clutter;
+import St from 'gi://St';
+import Glib from 'gi://Glib';
+import GObject from 'gi://GObject';
+import Clutter from 'gi://Clutter';
 
-const Main = imports.ui.main;
-const Mainloop = imports.mainloop;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as MainLoop from 'resource:///org/gnome/shell/ui/mainloop.js';
+import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
+import * as Util from 'resource:///org/gnome/shell/misc/util.js';
+import {Extension, Gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-const PanelMenu = imports.ui.panelMenu;
-const PopupMenu = imports.ui.popupMenu;
-const ExtensionUtils = imports.misc.extensionUtils;
-const Util = imports.misc.util;
-
-const Gettext = imports.gettext;
-const _ = Gettext.gettext;
-
-const Me = ExtensionUtils.getCurrentExtension();
-const Convenience = Me.imports.convenience;
-const Polyfill = Me.imports.polyfill;
-const Todoist = Me.imports.todoist;
-const Uuid = Me.imports.uuid;
+import * as Convenience from './convenience';
+import * as Polyfill from './polyfill';
+import * as Todoist from './todoist';
+import * as Uuid from './uuid';
 
 let TodoistTaskMenuItem  = GObject.registerClass(
   class TodoistTaskMenuItem extends PopupMenu.PopupBaseMenuItem {

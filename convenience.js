@@ -25,12 +25,9 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-const Gettext = imports.gettext;
-const Gio = imports.gi.Gio;
-
-const Config = imports.misc.config;
-const ExtensionUtils = imports.misc.extensionUtils;
-
+import Gio from 'gi://Gio';
+import * as Config from 'resource:///org/gnome/Shell/Extensions/js/misc/config.js';
+import {Extension, Gettext } from 'resource:///org/gnome/shell/extensions/extension.js';
 /**
  * initTranslations:
  * @domain: (optional): the gettext domain to use
@@ -39,7 +36,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
  * If @domain is not provided, it will be taken from metadata['gettext-domain']
  */
 function initTranslations(domain) {
-    let extension = ExtensionUtils.getCurrentExtension();
+    let extension = Extension.lookupByUUID('todoist@tarelda.github.com');
 
     domain = domain || extension.metadata['gettext-domain'];
 
@@ -63,8 +60,8 @@ function initTranslations(domain) {
  * metadata['settings-schema'].
  */
 function getSettings(schema) {
-    let extension = ExtensionUtils.getCurrentExtension();
-
+    let extension = Extension.lookupByUUID('todoist@tarelda.github.com');
+    
     schema = schema || extension.metadata['settings-schema'];
 
     const GioSSS = Gio.SettingsSchemaSource;

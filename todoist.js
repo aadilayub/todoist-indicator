@@ -1,4 +1,4 @@
-const Soup = imports.gi.Soup;
+import Soup from 'gi://Soup';
 
 const APIURL = 'https://todoist.com/API/v9';
 

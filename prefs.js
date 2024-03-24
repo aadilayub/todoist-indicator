@@ -1,14 +1,10 @@
-const GLib = imports.gi.GLib;
-const GObject = imports.gi.GObject;
-const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
+import Glib from 'gi://Glib';
+import GObject from 'gi://GObject';
+import Gio from 'gi://Gio';
+import Gtk from 'gi://Gtk';
 
-const Gettext = imports.gettext;
-const _ = Gettext.gettext;
-
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const Convenience = Me.imports.convenience;
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+import * as Convenience from './convenience';
 
 const TodoistPrefsWidget = GObject.registerClass({
     Name: 'Todoist.Prefs.Widget',
@@ -77,7 +73,7 @@ const TodoistPrefsWidget = GObject.registerClass({
 
 function init() {
   Gettext.textdomain("todoist@tarelda.github.com");
-  Gettext.bindtextdomain("todoist@tarelda.github.com", Me.dir.get_child("locale").get_path());
+  Gettext.bindtextdomain("todoist@tarelda.github.com", this.dir.get_child("locale").get_path());
 }
 
 function buildPrefsWidget() {
